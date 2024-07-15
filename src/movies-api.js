@@ -40,7 +40,7 @@ export const fetchMovieDetails = async (movieId) => {
   }
 };
 
-export const fetchMovieCredits = async (movieId) => {
+export const fetchMovieCast = async (movieId) => {
   try {
     const response = await axios.get(`${BASE_URL}/movie/${movieId}/credits`, options);
     return response.data.cast;

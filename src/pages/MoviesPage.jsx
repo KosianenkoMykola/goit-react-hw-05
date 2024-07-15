@@ -3,42 +3,41 @@ import { searchMovies } from '../movies-api';
 import MovieList from '../components/MovieList/MovieList';
 import { useState, useEffect } from 'react';
 
-export default function() {
+export default function MoviesPage() {
     const [movies, setMovies] = useState([]);
-    const [query, setQuery] = useState('');
+    const [query, setQuery] = useState(location.state?.query || '');
     const [searchParams, setSearchParams] = useSearchParams();
 
     const searchQuery = searchParams.get('query') ?? '';
 
-        useEffect(() => {
-            if (searchQuery) {
+    useEffect(() => {
+        if (searchQuery) {
             searchMovies(searchQuery).then(setMovies);
-            }
-        }, [searchQuery]);
+        }
+    }, [searchQuery]);
 
-        const handleSearchChange = (e) => {
-            setQuery(e.target.value);
-          };
+    const handleSearchChange = (e) => {
+        setQuery(e.target.value);
+    };
 
-        const handleSearchSubmit = (e) => {
-            e.preventDefault();
-            setSearchParams({ query });
-        };
+    const handleSearchSubmit = (e) => {
+        e.preventDefault();
+        setSearchParams({ query });
+    };
 
     return (
         <div>
             <h1>Search Movies</h1>
-                <form onSubmit={handleSearchSubmit}>
-                    <input
+            <form onSubmit={handleSearchSubmit}>
+                <input
                     type="text"
                     value={query}
                     onChange={handleSearchChange}
                     placeholder="Search movies..."
-                    
-                    />
-            <button type="submit">Search</button>
-      </form>
-      <MovieList movies={movies}/>
+                />
+                <button type="submit">Search</button>
+            </form>
+            <MovieList movies={movies} />
         </div>
-    )
+    );
 }

@@ -1,8 +1,10 @@
 .nav {
     display: flex;
-    gap: 8px;
-    margin-top: 16px;
-    margin-bottom: 16px;
+    gap: 15px;
+  }
+
+  .hidden {
+    display: none;
   }
   
   .link {
@@ -12,4 +14,12 @@
   
   .active {
     color: orangered;
+  }
+
+  .header {
+    background-color: rgb(204, 163, 220);
+    padding: 15px 20px;
+    border-radius: 5px; 
+    box-shadow: 0px 10px 13px -7px #535353, 5px 5px 15px 5px rgba(0,0,0,0);
+    margin-bottom: 20px;
   }

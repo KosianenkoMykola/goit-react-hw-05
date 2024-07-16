@@ -1,0 +1,19 @@
+.input {
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid #b6b6b6;
+}
+
+.btn {
+    padding: 7px 15px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(204, 163, 220);
+    cursor: pointer;
+    transition: background-color 500ms;
+}
+
+.btn:hover, .btn:focus {
+    background-color: rgb(224, 183, 240);
+}

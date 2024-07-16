@@ -1,7 +1,8 @@
 import { useSearchParams } from 'react-router-dom';
-import { searchMovies } from '../movies-api';
-import MovieList from '../components/MovieList/MovieList';
+import { searchMovies } from '../../movies-api';
+import MovieList from '../../components/MovieList/MovieList';
 import { useState, useEffect } from 'react';
+import css from "../MoviesPage/MoviesPage.module.css"
 
 export default function MoviesPage() {
     const [movies, setMovies] = useState([]);
@@ -34,8 +35,9 @@ export default function MoviesPage() {
                     value={query}
                     onChange={handleSearchChange}
                     placeholder="Search movies..."
+                    className={css.input}
                 />
-                <button type="submit">Search</button>
+                <button type="submit" className={css.btn}>Search</button>
             </form>
             <MovieList movies={movies} />
         </div>
